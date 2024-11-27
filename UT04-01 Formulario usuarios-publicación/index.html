@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <form action="https://www.w3schools.com/action_page.php" method="post">
+        <fieldset>
+            <legend>Datos Usuario</legend>
+            <label for="username">Nombre de Usuario</label>
+            <input type="text" id="username" name="username" placeholder="UserName" required>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Introduce Contraseña" required>
+            <input type="checkbox" id="showPassword" onclick="togglePassword()"> Mostrar Contraseña
+        </fieldset>
+
+        <fieldset>
+            <legend>Datos Personales</legend>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Ejem: (+34)922123123" required>
+            <label for="codigoPostal">Código Postal</label>
+            <input type="text" id="codigoPostal" name="codigoPostal" placeholder="38XXX" required>
+            <label for="dni">DNI/NIE</label>
+            <input type="text" id="dni" name="dni" placeholder="DNI / NIE" required>
+            <div>
+                <label>Crear cuenta como:</label>
+                <input type="radio" id="particular" name="tipoCuenta" value="Particular" required>
+                <label for="particular">Particular</label>
+                <input type="radio" id="empresa" name="tipoCuenta" value="Empresa" required>
+                <label for="empresa">Empresa</label>
+            </div>
+
+
+            <label for="anoNacimiento">Año de Nacimiento</label>
+            <select id="anoNacimiento" name="anoNacimiento" required>
+                <option value="" disabled selected>Selecciona un año</option>
+                <script>
+                    for (let year = 1960; year <= 2015; year++) {
+                        document.write(`<option value="${year}">${year}</option>`);
+                    }
+                </script>
+            </select>
+
+
+            <label>Elige tus aficiones:</label>
+            <input type="checkbox" id="musica" name="aficiones" value="Musica">
+            <label for="musica">Música</label>
+            <input type="checkbox" id="deporte" name="aficiones" value="Deporte">
+            <label for="deporte">Deporte</label>
+            <input type="checkbox" id="videojuegos" name="aficiones" value="Video Juegos">
+            <label for="videojuegos">Video Juegos</label>
+            <input type="checkbox" id="manualidades" name="aficiones" value="Manualidades">
+            <label for="manualidades">Manualidades</label>
+            <input type="checkbox" id="artes" name="aficiones" value="Artes">
+            <label for="artes">Artes</label>
+            <input type="checkbox" id="lectura" name="aficiones" value="Lectura">
+            <label for="lectura">Lectura</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Datos Publicación</legend>
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo" maxlength="15" placeholder="Título" required>
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion" maxlength="120" placeholder="Descripción" required></textarea>
+        </fieldset>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+
+</html>

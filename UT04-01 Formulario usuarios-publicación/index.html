@@ -30,7 +30,14 @@
             <label for="codigoPostal">Código Postal</label>
             <input type="text" id="codigoPostal" name="codigoPostal" placeholder="38XXX" required>
             <label for="dni">DNI/NIE</label>
-            <input type="text" id="dni" name="dni" placeholder="DNI / NIE" required>
+            <select id="tipoDocumento" name="tipoDocumento" required>
+                <option value="" disabled selected>Selecciona un tipo</option>
+                <option value="dni">DNI</option>
+                <option value="nie">NIE</option>
+            </select>
+
+            <label for="dniNie">Documento</label>
+            <input type="text" id="dniNie" name="dniNie" placeholder="DNI / NIE" disabled required>
             <div>
                 <label>Crear cuenta como:</label>
                 <input type="radio" id="particular" name="tipoCuenta" value="Particular" required>
@@ -39,17 +46,10 @@
                 <label for="empresa">Empresa</label>
             </div>
 
-
             <label for="anoNacimiento">Año de Nacimiento</label>
             <select id="anoNacimiento" name="anoNacimiento" required>
                 <option value="" disabled selected>Selecciona un año</option>
-                <script>
-                    for (let year = 1960; year <= 2015; year++) {
-                        document.write(`<option value="${year}">${year}</option>`);
-                    }
-                </script>
             </select>
-
 
             <label>Elige tus aficiones:</label>
             <input type="checkbox" id="musica" name="aficiones" value="Musica">
@@ -77,12 +77,7 @@
         <button type="submit">Enviar</button>
     </form>
 
-    <script>
-        function togglePassword() {
-            const passwordField = document.getElementById("password");
-            passwordField.type = passwordField.type === "password" ? "text" : "password";
-        }
-    </script>
+    <script src="./script/main.js"></script>
 </body>
 
 </html>

@@ -58,6 +58,24 @@ function maximo(input) {
     const tituloCounter = document.getElementById("tituloCounter");
     const descripcionTextarea = document.getElementById("descripcion");
     const descripcionCounter = document.getElementById("descripcionCounter");
+<<<<<<< HEAD
+=======
+
+    // Actualizar contador para Título
+    tituloInput.addEventListener("input", (e) => {
+        const currentLength = e.target.value.length;
+        const maxLength = e.target.getAttribute("maxlength");
+        tituloCounter.textContent = `${currentLength} / ${maxLength}`;
+    });
+
+    // Actualizar contador para Descripción
+    descripcionTextarea.addEventListener("input", (e) => {
+        const currentLength = e.target.value.length;
+        const maxLength = e.target.getAttribute("maxlength");
+        descripcionCounter.textContent = `${currentLength} / ${maxLength}`;
+    });
+})();
+>>>>>>> 766efa3f12db068e882592d5fa56f2436eba37d3
 
     // Actualizar contador para Título
     tituloInput.addEventListener("input", (e) => {

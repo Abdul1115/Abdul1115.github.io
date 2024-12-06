@@ -1,80 +1,152 @@
 body {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
     font-family: Arial, sans-serif;
-    margin: auto;
+    margin: 20px;
 }
 
+/* Ajustes de estructura principal */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Formulario y mensajes */
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Formulario */
 form {
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
-}
-.user{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-.user > div{
-    display: flex;
-    flex-direction: column;
+    background-color: #f9f9f9;
 }
 
-.person {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+/* Sección de mensajes dinámicos */
+.validation-panel {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
 }
-.person > div{
-    display: flex;
-    flex-direction: column;
-}
-.person2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
 
-}
-div{
-    margin: 0.6em;
-}
-.person3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-
-}
-.public input, textarea{
-    width: 97%;
-    padding: 1em;
-}
-small {
-    display: block;
-    text-align: right;
-    font-size: 12px;
-    color: #888;
-    margin-bottom: 10px;
-}
-input {
-    padding: 8px ;    
+/* Fieldset general */
+fieldset {
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    padding: 15px;
 }
 
+/* Ajuste de columnas */
+.User{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+}
+.Person{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.Person2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+.Afi{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+/*DNI*/
+.DN{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+/* Etiquetas en negrita */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Inputs, selects y textarea */
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Evita que el padding desordene el diseño */
+}
+
+/* Botón de envío */
 button {
+    display: block;
+    width: 100%;
+    padding: 10px;
     background-color: #4CAF50;
     color: white;
-    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
-input[type="checkbox"], input[type="radio"] {
-    width: auto;
-    margin-right: 5px;
-}
 button:hover {
     background-color: #45a049;
 }
 
-/* Pseudoclases para campos válidos e inválidos */
-input:valid, textarea:valid, select:valid {
-    border-color: green;
+/* Checkbox y radio alineados */
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+/* Espaciado entre checkbox y radios */
+.grid div div {
+    margin-bottom: 8px;
+}
+
+/* Pequeños contadores */
+small {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: gray;
+    text-align: right;
+}
+
+/* Estilo de mensajes dinámicos */
+.validation-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.validation-panel ul li {
+    margin-bottom: 10px;
+    color: red;
+    font-size: 14px;
+}
+.validation-panel {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    margin-top: 20px;
+}
+textarea:invalid + #des_required
+{
+    visibility: visible;
+    font-size: small;
+    color: red;
+}
+input:invalid + #des_required
+{
+    visibility: visible;
+    font-size: small;
+    color: red;
+}
+span {
+    visibility: hidden;
 }

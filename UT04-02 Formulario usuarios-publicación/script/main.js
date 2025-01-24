@@ -30,6 +30,31 @@ const DOM = {
     hiddenAficiones: document.getElementById("hiddenAficiones"),
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", (event) => {
+        let valid = true;
+        const inputs = form.querySelectorAll("input[required], textarea[required], select[required]");
+
+        // Recorrer todos los campos requeridos
+        inputs.forEach((input) => {
+            if (!input.value.trim()) {
+                valid = false;
+                input.style.borderColor = "red"; // Destacar campos vacíos
+            } else {
+                input.style.borderColor = "green"; // Restaurar estilo si es válido
+            }
+        });
+
+        // Evitar envío si algún campo no está completo
+        if (!valid) {
+            event.preventDefault();
+        }
+    });
+});
+
+
 // Eventos y Configuración Inicial
 document.addEventListener("DOMContentLoaded", () => {
     // Configurar contadores de caracteres
@@ -76,12 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         DOM.anoNacimiento.appendChild(option);
     }
 
-    // Deshabilitar los checkboxes de aficiones al enviar
-    document.querySelector("form").addEventListener("submit", () => {
-        DOM.aficiones.forEach((checkbox) => {
-            checkbox.disabled = true; // Deshabilitar para evitar duplicación
-        });
-    });
+ 
 
     // Validar mensajes iniciales
     actualizarMensajes();
